@@ -1,10 +1,14 @@
 
+import { BrowserRouter } from 'react-router'
 import './App.css'
+import { Header } from './components/Header'
 
 function App() {
 
   return (
     <>
+    <BrowserRouter>
+    <Header/>
     <div className='grid grid-cols-2 min-h-screen'>
 
       <div className='bg-surface-dark p-4 flex items-center '>
@@ -15,6 +19,7 @@ function App() {
 
       </div>
     </div>
+    </BrowserRouter>
     </>
   )
 }

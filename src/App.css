@@ -14,5 +14,12 @@
 
     --color-surface-light:#f8fafc;
     --color-surface-dark:#0f172a;
+    --animate-open-menu:openMenu .3s ease;
+
+    @keyframes openMenu{
+        0%{
+            width:0;
+        }
+    }
     
 }

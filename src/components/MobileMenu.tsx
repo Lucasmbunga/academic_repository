@@ -1,42 +1,57 @@
-import { UserIcon } from "lucide-react";
-import type { FC } from "react";
-import { Link } from "react-router";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState, type FC } from "react";
+import ButtonsBox from "./ButtonsBox";
 
-interface IMobileMenuProps {
-  isOpen: boolean;
-  onClose(): void;
-}
+const MobileMenu: FC = () => {
+  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState<boolean>(false);
 
-const MobileMenu: FC<IMobileMenuProps> = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    if (isMenuMobileOpen) {
+      window.document.documentElement.style.overflow = "hidden";
+    } else {
+      window.document.documentElement.style.overflow = "unset";
+    }
+  }, [isMenuMobileOpen]);
+
   return (
-    <div className="bg-white md:hidden w-100">
-      <div
-        onClick={onClose}
-        className={`${isOpen ? "fixed" : "hidden"}  top-14 left-0 min-w-screen min-h-screen bg-black/35 z-0`}
-      >
-        <nav onClick={event=>event.stopPropagation()} className="w-full  bg-white flex flex-col items-center gap-4 fixed top-14 right-0 p-6 rounded-bl-md rounded-br-md animate-open-menu">
-          <ul className="w-full flex flex-col items-center gap-4 text-[#54232D] font-medium *:px-4 *:py-2">
-            <li className="text-center max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl transition-colors duration-300 ease-initial">
-              <a href="#">Instituições</a>
-            </li>
-          </ul>
-          <div className="flex items-center justify-center gap-2 max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl cursor-pointer ring-1 ring-[#54232D] transition-colors duration-300 ease-initial">
-            <UserIcon className="text-[#54232D]" />
-            <Link
-              to={"/"}
-              className="text-[#54232D] font-semibold  pr-4 py-2 rounded-4xl"
-            >
-              Entrar
-            </Link>
-          </div>
-          <Link
-            to={"/"}
-            className="max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] text-[#FFF7EF]  grow font-semibold flex items-center justify-center px-4 bg-[#54232D] hover:bg-[#54232D]/85  py-2 rounded-4xl transition-colors duration-300 ease-initial"
-          >
-            Criar conta
-          </Link>
-        </nav>
+    <div className=" md:hidden">
+      <div className="flex items-center cursor-pointe md:hiddenr">
+        {!isMenuMobileOpen && (
+          <Menu
+            onClick={() => setIsMenuMobileOpen(true)}
+            size={30}
+            className="text-[#54232D] md:hidden cursor-pointer"
+          />
+        )}
       </div>
+      <div
+        onClick={() => setIsMenuMobileOpen(false)}
+        className={`${isMenuMobileOpen ? "fixed" : "hidden"}  top-0 left-0 min-w-screen min-h-screen bg-black/35 transition-all duration-300 ease-in-out z-0`}
+      >
+      </div>
+      <div onClick={(event)=>event.stopPropagation()} className={`${isMenuMobileOpen? 'animate-open-menu':'animate-close-menu'} w-[90%]  fixed  left-0 top-0 rounded-bl-md rounded-br-md transition-all duration-300 ease-in-out `}>
+          <div className="flex justify-between bg-[#F6F3EB] px-6 py-3">
+            <div>Logo</div>
+            <X
+              onClick={() => setIsMenuMobileOpen(false)}
+              size={33}
+              className="text-[#54232D] md:hidden  cursor-pointer"
+            />
+          </div>
+          <div className=" bg-white p-6 min-h-screen">
+            <nav
+              onClick={(event) => event.stopPropagation()}
+              className="w-full   flex flex-col items-center gap-4 "
+            >
+              <ul className="w-full flex flex-col items-center gap-4 text-[#54232D] font-medium *:px-4 *:py-2">
+                <li className="text-center max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl transition-colors duration-300 ease-initial">
+                  <a href="#">Instituições</a>
+                </li>
+              </ul>
+              <ButtonsBox/>
+            </nav>
+          </div>
+        </div>
     </div>
   );
 };

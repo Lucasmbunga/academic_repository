@@ -1,18 +1,15 @@
-
-import { BrowserRouter } from 'react-router'
-import './App.css'
-import { Header } from './components/Header'
+import { BrowserRouter } from "react-router";
+import "./App.css";
+import { Home } from "./pages";
 
 function App() {
-
   return (
     <>
-    <BrowserRouter>
-    <Header/>
-    
-    </BrowserRouter>
+      <BrowserRouter>
+        <Home/>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

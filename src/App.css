@@ -16,18 +16,33 @@
     --color-surface-dark: #0f172a;
     --animate-open-menu: openMenu .3s ease forwards;
     --animate-close-menu: closeMenu .3s ease forwards;
+    --animate-open-overlay: openOverlay .5s ease forwards;
+    --animate-open-faq: openFAQ .3s ease;
+
 
     @keyframes openMenu {
         0% {
             transform: translate(-100%) ;
         }
     }
-
+    
     @keyframes closeMenu {
-
+        
         100% {
             transform: translate(-100%);
             display:none;
+        }
+    }
+    @keyframes openOverlay {
+        0%{
+
+            opacity: 0;
+        }
+    }
+    @keyframes openFAQ {
+        0% {
+            height: 0 ;
+            padding: 0;
         }
     }
 }

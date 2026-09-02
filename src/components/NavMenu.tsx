@@ -5,7 +5,7 @@ import ButtonsBox from "./ButtonsBox";
 const NavMenu: FC = () => {
   return (
     <>
-      <div className="flex justify-between  grow min-[765px]:">
+      <div className="flex justify-between  grow">
         <div className="grow basis-1/3 flex items-center justify-between px-2 py-1.5 rounded-md border has-focus:border-2 border-rose-950 has-focus:border-pink-950 transition-all duration-300 ease-linear">
           <input
             type="search"
@@ -16,7 +16,7 @@ const NavMenu: FC = () => {
             <SearchIcon className="w-5 cursor-pointer"></SearchIcon>
           </label>
         </div>
-        <div className="grow hidden md:flex md:justify-between">
+        <div className="grow hidden min-[772px]:flex md:justify-between">
           <nav>
             <ul className="flex text-[#54232D] font-medium *:px-3 *:py-2">
               <li>

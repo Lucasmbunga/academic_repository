@@ -14,22 +14,22 @@ const MobileMenu: FC = () => {
   }, [isMenuMobileOpen]);
 
   return (
-    <div className=" md:hidden">
-      <div className="flex items-center cursor-pointe md:hiddenr">
+    <div className=" min-[772px]:hidden">
+      <div className="flex items-center cursor-pointe min-[772px]:hidden">
         {!isMenuMobileOpen && (
           <Menu
             onClick={() => setIsMenuMobileOpen(true)}
             size={30}
-            className="text-[#54232D] md:hidden cursor-pointer"
+            className="text-[#54232D] cursor-pointer"
           />
         )}
       </div>
       <div
         onClick={() => setIsMenuMobileOpen(false)}
-        className={`${isMenuMobileOpen ? "fixed" : "hidden"}  top-0 left-0 min-w-screen min-h-screen bg-black/35 transition-all duration-300 ease-in-out z-0`}
+        className={`${isMenuMobileOpen ? "animate-open-overlay fixed" : "hidden"}  top-0 left-0 min-w-screen min-h-screen bg-black/35 transition-all duration-300 ease-in-out z-0`}
       >
       </div>
-      <div onClick={(event)=>event.stopPropagation()} className={`${isMenuMobileOpen? 'animate-open-menu':'animate-close-menu'} w-[90%]  fixed  left-0 top-0 rounded-bl-md rounded-br-md transition-all duration-300 ease-in-out `}>
+      <div onClick={(event)=>event.stopPropagation()} className={`${isMenuMobileOpen? 'animate-open-menu':'-translate-x-full'} w-[90%]  fixed  left-0 top-0 rounded-bl-md rounded-br-md transition-all duration-300 ease-in-out `}>
           <div className="flex justify-between bg-[#F6F3EB] px-6 py-3">
             <div>Logo</div>
             <X

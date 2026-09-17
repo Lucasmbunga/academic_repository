@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, Save, Upload, X } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
 import ButtonsBox from "./ButtonsBox";
 
@@ -14,8 +14,8 @@ const MobileMenu: FC = () => {
   }, [isMenuMobileOpen]);
 
   return (
-    <div className=" min-[772px]:hidden">
-      <div className="flex items-center cursor-pointe min-[772px]:hidden">
+    <div className=" min-[867px]:hidden">
+      <div className="flex items-center cursor-pointe min-[867px]:hidden">
         {!isMenuMobileOpen && (
           <Menu
             onClick={() => setIsMenuMobileOpen(true)}
@@ -43,10 +43,15 @@ const MobileMenu: FC = () => {
               onClick={(event) => event.stopPropagation()}
               className="w-full   flex flex-col items-center gap-4 "
             >
-              <ul className="w-full flex flex-col items-center gap-4 text-[#54232D] font-medium *:px-4 *:py-2">
+              <ul className="w-full flex flex-col items-center gap-4 text-[#54232D] font-medium *:px-4 *:py-2 *:flex *:items-center *:justify-center *:gap-2">
                 <li className="text-center max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl transition-colors duration-300 ease-initial">
-                  <a href="#">Instituições</a>
-                </li>
+                <Upload/>
+                <a href="#"> Carregar</a>
+              </li>
+              <li className="text-center max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl transition-colors duration-300 ease-initial">
+                <Save/>
+                <a href="#"> Salvo</a>
+              </li>
               </ul>
               <ButtonsBox/>
             </nav>

@@ -1,4 +1,4 @@
-import { SearchIcon } from "lucide-react";
+import { Save, SearchIcon, Upload } from "lucide-react";
 import { type FC } from "react";
 import ButtonsBox from "./ButtonsBox";
 
@@ -16,14 +16,16 @@ const NavMenu: FC = () => {
             <SearchIcon className="w-5 cursor-pointer"></SearchIcon>
           </label>
         </div>
-        <div className="grow hidden min-[772px]:flex md:justify-between">
+        <div className="grow hidden min-[867px]:flex md:justify-between">
           <nav>
             <ul className="flex text-[#54232D] font-medium *:px-3 *:py-2">
-              <li>
-                <a href="#">Instituições</a>
+              <li className="flex items-center gap-2">
+                <Upload/>
+                <a href="#"> Carregar</a>
               </li>
-              <li>
-                <a href="#"> Sobre</a>
+              <li className="flex items-center gap-2">
+                <Save/>
+                <a href="#"> Salvo</a>
               </li>
               
             </ul>

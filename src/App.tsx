@@ -1,12 +1,18 @@
-import { BrowserRouter } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 import "./App.css";
-import { Home } from "./pages";
+import { Documents, Home, LoginForm,RegisterForm } from "./pages";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Home/>
+        <Routes>
+          <Route path="/" element={ <Home />}/>
+          <Route path="/login" element={ <LoginForm />}/>
+          <Route path="/sign-up" element={ <RegisterForm />}/>
+          <Route path="/documents" element={ <Documents />}/>
+         
+        </Routes>
       </BrowserRouter>
     </>
   );

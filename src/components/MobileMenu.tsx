@@ -1,6 +1,7 @@
 import { Menu, Save, Upload, X } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
 import ButtonsBox from "./ButtonsBox";
+import { Link } from "react-router";
 
 const MobileMenu: FC = () => {
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState<boolean>(false);
@@ -46,11 +47,11 @@ const MobileMenu: FC = () => {
               <ul className="w-full flex flex-col items-center gap-4 text-[#54232D] font-medium *:px-4 *:py-2 *:flex *:items-center *:justify-center *:gap-2">
                 <li className="text-center max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl transition-colors duration-300 ease-initial">
                 <Upload/>
-                <a href="#"> Carregar</a>
+                <Link to="/"> Carregar</Link>
               </li>
               <li className="text-center max-[429px]:w-full min-[428px]:w-[90%] sm:w-[70%] hover:bg-[#54232D]/10 rounded-4xl transition-colors duration-300 ease-initial">
                 <Save/>
-                <a href="#"> Salvo</a>
+                <Link to="/saved"> Salvo</Link>
               </li>
               </ul>
               <ButtonsBox/>

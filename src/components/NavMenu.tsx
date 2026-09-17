@@ -1,6 +1,7 @@
 import { Save, SearchIcon, Upload } from "lucide-react";
 import { type FC } from "react";
 import ButtonsBox from "./ButtonsBox";
+import { Link } from "react-router";
 
 const NavMenu: FC = () => {
   return (
@@ -21,11 +22,11 @@ const NavMenu: FC = () => {
             <ul className="flex text-[#54232D] font-medium *:px-3 *:py-2">
               <li className="flex items-center gap-2">
                 <Upload/>
-                <a href="#"> Carregar</a>
+                <Link to="/"> Carregar</Link>
               </li>
               <li className="flex items-center gap-2">
                 <Save/>
-                <a href="#"> Salvo</a>
+                <Link to="/saved"> Salvo</Link>
               </li>
               
             </ul>

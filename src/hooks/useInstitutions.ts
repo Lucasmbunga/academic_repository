@@ -8,7 +8,7 @@ const getInstitutions = async (): AxiosPromise<ResponseProps<PageModel<Instituti
     return response;
 }
 
-const useGetInstitutions = () => {
+export const useInstitutions = () => {
     const query = useQuery({
         queryKey: ['institutions'],
         queryFn: getInstitutions,
@@ -17,4 +17,3 @@ const useGetInstitutions = () => {
     return {...query,data:query.data?.data.data.content}
 }
 
-export default useGetInstitutions;

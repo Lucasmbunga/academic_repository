@@ -8,7 +8,7 @@ const getFacultiesByInstitution = async (institutionId: number):AxiosPromise<Res
     return response;
 }
 
-const useGetFacultiesByInstitution=(institutionId: number)=>{
+export const useGetFacultiesByInstitution=(institutionId: number)=>{
     const query=useQuery({
         queryKey:['faculties',institutionId],
         queryFn:()=>getFacultiesByInstitution(institutionId),
@@ -18,4 +18,3 @@ const useGetFacultiesByInstitution=(institutionId: number)=>{
     })
     return {...query,data:query.data?.data.data.content}
 }
-export default useGetFacultiesByInstitution;

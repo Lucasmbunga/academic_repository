@@ -1,3 +1,6 @@
+import type z from "zod";
+import type registerSchema from "../schemas/userRegisterSchema";
+
 export interface LoginData {
   email: string;
   password: string;
@@ -55,3 +58,6 @@ export interface CourseProps {
   duration: number;
   institutionName: string;
 }
+
+export type RegisterFormData = z.infer<typeof registerSchema>;
+
